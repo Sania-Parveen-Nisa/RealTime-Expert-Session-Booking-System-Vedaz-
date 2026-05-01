@@ -1,9 +1,13 @@
 const cors = require("cors");
 
+
+const cors = require("cors");
+
 app.use(cors({
-  origin: "*",
-  methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+  origin: "*", // allow all for now
 }));
+
+
 
 
 const express = require("express");
