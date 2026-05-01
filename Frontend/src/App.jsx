@@ -9,7 +9,7 @@ function App() {
   const [experts, setExperts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/experts")
+fetch(`${import.meta.env.VITE_API_URL}/experts`)
       .then((res) => res.json())
       .then((data) => setExperts(data))
       .catch((err) => console.log(err));

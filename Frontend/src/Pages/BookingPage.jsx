@@ -41,7 +41,7 @@ useEffect(() => {
       setLoading(true);
       setError("");
 
-      const res = await axios.get("http://localhost:5000/bookings");
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/bookings`);
 
       const grouped = {};
 
@@ -119,7 +119,7 @@ const bookSlot = async (time, date) => {
     setError("");
     setMessage("");
 
-    await axios.post("http://localhost:5000/bookings", {
+    await axios.post(`${import.meta.env.VITE_API_URL}/bookings`, {
       ...form,
       expertId: id,
       date,

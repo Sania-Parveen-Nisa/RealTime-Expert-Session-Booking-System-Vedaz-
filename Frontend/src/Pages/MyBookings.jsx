@@ -10,7 +10,7 @@ function MyBookings({ experts }) {
 
   const cancelBooking = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/bookings/${id}`);
+      await axios.delete(`${import.meta.env.VITE_API_URL}/bookings/${id}`);
 
       setBookings((prev) => prev.filter((b) => b._id !== id));
     } catch (err) {
@@ -34,7 +34,7 @@ function MyBookings({ experts }) {
       setSearched(true);
 
       const res = await axios.get(
-        `http://localhost:5000/bookings?email=${email}`,
+       `${import.meta.env.VITE_API_URL}/bookings?email=${email}`,
       );
 
       setBookings(res.data);
@@ -45,7 +45,7 @@ function MyBookings({ experts }) {
 
   const updateStatus = async (id, newStatus) => {
     try {
-      await axios.patch(`http://localhost:5000/bookings/${id}/status`, {
+      await axios.patch(`${import.meta.env.VITE_API_URL}/bookings/${id}/status`, {
         status: newStatus,
       });
 
@@ -96,7 +96,7 @@ function MyBookings({ experts }) {
                 </SmallBtn2>
               )}
 
-              {b.status == "Pending"  && (
+              {b.status === "Pending"  && (
                 <SmallBtn3 onClick={() => cancelBooking(b._id)}>
                   Cancel
                 </SmallBtn3>
