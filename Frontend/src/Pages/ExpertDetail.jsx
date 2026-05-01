@@ -50,6 +50,10 @@ const Page = styled.div`
   background: linear-gradient(135deg, #eef2ff, #f8fafc);
   padding: 60px 20px;
   font-family: "Segoe UI", sans-serif;
+
+   @media (max-width: 768px) {
+    padding: 30px 12px;
+  }
 `;
 
 const Container = styled.div`
@@ -69,11 +73,19 @@ const Left = styled.div`
   padding: 35px;
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+   @media (max-width: 768px) {
+    padding: 20px;
+  }
 `;
 
 const Right = styled.div`
   display: flex;
   align-items: flex-start;
+
+   @media (max-width: 768px) {
+    justify-content: center;
+  }
 `;
 
 const BookingCard = styled.div`
@@ -89,6 +101,10 @@ const Name = styled.h1`
   color: #0f172a;
   font-size: 28px;
   margin-bottom: 5px;
+
+   @media (max-width: 768px) {
+    font-size: 22px;
+  }
 `;
 
 const Category = styled.p`
@@ -113,6 +129,10 @@ const SectionTitle = styled.h3`
   margin-top: 25px;
   color: #1e293b;
   font-size: 18px;
+
+    @media (max-width: 768px) {
+    font-size: 16px;
+  }
 `;
 
 const Description = styled.p`
@@ -139,7 +159,7 @@ const Button = styled.button`
   font-weight: bold;
   font-size: 15px;
   cursor: pointer;
-  font-weight: 600px;
+  font-weight: 500;
   transition: 0.3s;
 
   &:hover {

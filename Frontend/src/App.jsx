@@ -123,6 +123,9 @@ const Page = styled.div`
   background: linear-gradient(135deg, #eef2ff, #f8fafc);
   padding: 50px 20px;
   font-family: "Segoe UI", sans-serif;
+   @media (max-width: 768px) {
+    padding: 30px 12px;
+  }
 `;
 
 const Header = styled.h1`
@@ -130,6 +133,9 @@ const Header = styled.h1`
   font-size: 34px;
   color: #0f172a;
   margin-bottom: 10px;
+    @media (max-width: 768px) {
+    font-size: 24px;
+  }
 `;
 
 const SubText = styled.p`
@@ -137,6 +143,11 @@ const SubText = styled.p`
   color: #64748b;
   margin-bottom: 40px;
   font-size: 15px;
+
+   @media (max-width: 768px) {
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
 `;
 
 const MyBookingBtn = styled.button`
@@ -153,6 +164,11 @@ const MyBookingBtn = styled.button`
   &:hover {
     background: #0284c7;
   }
+
+   @media (max-width: 768px) {
+    width: 100%;
+    max-width: 300px;
+  }
 `;
 
 const FilterBar = styled.div`
@@ -161,6 +177,11 @@ const FilterBar = styled.div`
   gap: 15px;
   margin-bottom: 30px;
   flex-wrap: wrap;
+
+   @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const SearchInput = styled.input`
@@ -168,11 +189,21 @@ const SearchInput = styled.input`
   border-radius: 10px;
   border: 1px solid #e2e8f0;
   width: 240px;
+
+   @media (max-width: 768px) {
+    width: 100%;
+    max-width: 320px;
+  }
 `;
 
 const Select = styled.select`
   padding: 12px;
   border-radius: 10px;
+
+    @media (max-width: 768px) {
+    width: 100%;
+    max-width: 320px;
+  }
 `;
 
 const Grid = styled.div`
@@ -181,6 +212,16 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 25px;
+
+  
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+
+  @media (max-width: 768px) {
+    gap: 15px;
+  }
+  
 `;
 
 const Card = styled.div`
@@ -188,6 +229,10 @@ const Card = styled.div`
   padding: 25px;
   border-radius: 16px;
   text-align: center;
+
+    @media (max-width: 768px) {
+    padding: 18px;
+  }
 `;
 
 const Name = styled.h3``;
@@ -212,6 +257,10 @@ const Button = styled.button`
   font-size: 15px;
   border-radius: 8px;
   cursor: pointer;
+
+   @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const NoResult = styled.p`
@@ -224,6 +273,11 @@ const Pagination = styled.div`
   display: flex;
   justify-content: center;
   gap: 10px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const PageBtn = styled.button`

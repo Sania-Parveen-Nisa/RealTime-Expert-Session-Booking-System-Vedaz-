@@ -116,12 +116,21 @@ const Page = styled.div`
   min-height: 100vh;
   background: linear-gradient(135deg, #eef2ff, #f8fafc);
   padding: 40px;
+
+
+  @media (max-width: 768px) {
+    padding: 20px 12px;
+  }
 `;
 
 const Container = styled.div`
   max-width: 600px;
   margin: auto;
   text-align: center;
+
+    @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const Title = styled.h2`
@@ -134,6 +143,10 @@ const Input = styled.input`
   margin-bottom: 10px;
   border-radius: 8px;
   border: 1px solid #ccc;
+
+  @media (max-width: 768px) {
+    padding: 14px;
+  }
 `;
 
 const SearchBtn = styled.button`
@@ -143,6 +156,10 @@ const SearchBtn = styled.button`
   border: none;
   border-radius: 8px;
   cursor: pointer;
+
+    @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const Card = styled.div`
@@ -151,12 +168,20 @@ const Card = styled.div`
   margin-top: 15px;
   border-radius: 10px;
   text-align: left;
+
+   @media (max-width: 768px) {
+    padding: 12px;
+  }
 `;
 
 const ButtonGroup = styled.div`
   display: flex;
   gap: 10px;
   margin-top: 10px;
+
+   @media (max-width: 480px) {
+    flex-direction: column;
+  }
 `;
 
 const SmallBtn = styled.button`
@@ -170,6 +195,10 @@ const SmallBtn = styled.button`
   &:hover {
     background: #01310c;
   }
+
+   @media (max-width: 480px) {
+    width: 100%;
+  }
 `;
 const SmallBtn3 = styled.button`
   padding: 6px 10px;
@@ -182,6 +211,9 @@ const SmallBtn3 = styled.button`
   &:hover {
     background: #970915;
   }
+   @media (max-width: 480px) {
+    width: 100%;
+  }
 `;
 const SmallBtn2 = styled.button`
   padding: 6px 10px;
@@ -193,6 +225,9 @@ const SmallBtn2 = styled.button`
 
   &:hover {
     background: #0284c7;
+  }
+   @media (max-width: 480px) {
+    width: 100%;
   }
 `;
 

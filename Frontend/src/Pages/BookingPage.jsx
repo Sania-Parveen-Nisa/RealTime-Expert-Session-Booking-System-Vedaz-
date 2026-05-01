@@ -211,6 +211,13 @@ const Page = styled.div`
   min-height: 100vh;
   background: linear-gradient(to right, #eef2ff, #f8fafc);
   padding: 40px;
+
+    @media (max-width: 768px) {
+    padding: 20px 12px;
+  }
+   
+  
+
 `;
 
 const Container = styled.div`
@@ -219,6 +226,10 @@ const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 30px;
+
+   @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const LeftCard = styled.div`
@@ -227,6 +238,12 @@ const LeftCard = styled.div`
   color: white;
   padding: 30px;
   border-radius: 12px;
+
+   @media (max-width: 768px) {
+    order: 1;
+  }
+ 
+ 
 `;
 
 const RightCard = styled.div`
@@ -234,6 +251,12 @@ const RightCard = styled.div`
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+
+  
+  @media (max-width: 768px) {
+    order: 2;
+  }
+  
 `;
 
 const Title = styled.h2`
@@ -256,6 +279,10 @@ const Input = styled.input`
   margin-bottom: 10px;
   border-radius: 8px;
   border: 1px solid #ccc;
+
+   @media (max-width: 768px) {
+    padding: 14px;
+  }
 `;
 
 const DateBlock = styled.div`
@@ -270,6 +297,14 @@ const SlotGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
+
+   @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const SlotButton = styled.button`
