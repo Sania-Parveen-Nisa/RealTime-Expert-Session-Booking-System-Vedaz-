@@ -149,10 +149,16 @@ const bookSlot = async (time, date) => {
   }
 };
 
+  if (loading) {
+  return (
+    <Page>
+      <Loader />
+    </Page>
+  );
+}
 
 
-
-        if (loading) return <h2>Loading slots...</h2>;
+        // if (loading) return <h2>Loading slots...</h2>;
 
   return (
     
@@ -229,6 +235,23 @@ const Container = styled.div`
 
    @media (max-width: 768px) {
     grid-template-columns: 1fr;
+  }
+`;
+
+const Loader = styled.div`
+  margin: 100px auto;
+  border: 6px solid #e2e8f0;
+  border-top: 6px solid #0ea5e9;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+
+
+  @keyframes spin {
+    100% {
+      transform: rotate(360deg);
+    }
   }
 `;
 
