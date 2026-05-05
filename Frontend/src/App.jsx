@@ -7,17 +7,20 @@ import MyBookings from "./Pages/MyBookings";
 
 function App() {
   const [experts, setExperts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
 
   useEffect(() => {
 fetch(`${import.meta.env.VITE_API_URL}/experts`)
       .then((res) => res.json())
       .then((data) => setExperts(data))
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
+      .finally(() => setLoading(false));
   }, []);
 
   return (
     <Routes>
-      <Route path="/" element={<Home experts={experts} />} />
+      <Route path="/" element={<Home experts={experts} loading={loading} />} />
       <Route path="/expert/:id" element={<ExpertDetails experts={experts} />} />
       <Route path="/booking/:id" element={<BookingPage experts={experts} />} />
       <Route path="/my-bookings" element={<MyBookings experts={experts} />} />
@@ -28,13 +31,21 @@ fetch(`${import.meta.env.VITE_API_URL}/experts`)
 export default App;
 
 
-function Home({ experts }) {
+function Home({ experts,loading }) {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("");
   const [page, setPage] = useState(1);
   const limit = 6;
 
   const navigate = useNavigate();
+
+  if (loading) {
+  return (
+    <Page>
+      <Loader />
+    </Page>
+  );
+}
 
   const filteredExperts = experts
     .filter((e) => {
@@ -48,6 +59,8 @@ function Home({ experts }) {
 
   const start = (page - 1) * limit;
   const paginatedExperts = filteredExperts.slice(start, start + limit);
+
+
 
   return (
     <Page>
@@ -83,17 +96,23 @@ function Home({ experts }) {
 
       <Grid>
         {paginatedExperts.length > 0 ? (
-          paginatedExperts.map((exp) => (
-            <Card key={exp.id}>
+          paginatedExperts.map((exp) => {
+            const id = exp._id || exp.id;
+            return(
+            <Card key={id}>
               <Name>{exp.name}</Name>
               <Category>{exp.category}</Category>
               <Rating>⭐ {exp.rating}</Rating>
 
-              <Button onClick={() => navigate(`/expert/${exp.id}`)}>
+              
+                
+              
+
+              <Button onClick={() => navigate(`/expert/${id}`)}>
                 View Details
               </Button>
             </Card>
-          ))
+          )})
         ) : (
           <NoResult>No mentors found</NoResult>
         )}
@@ -135,6 +154,22 @@ const Header = styled.h1`
   margin-bottom: 10px;
     @media (max-width: 768px) {
     font-size: 24px;
+  }
+`;
+
+const Loader = styled.div`
+  margin: 100px auto;
+  border: 6px solid #e2e8f0;
+  border-top: 6px solid #0ea5e9;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+
+  @keyframes spin {
+    100% {
+      transform: rotate(360deg);
+    }
   }
 `;
 
